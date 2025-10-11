@@ -39,7 +39,7 @@ class opendkim (
   $replace_rules        = '/etc/opendkim/ReplaceRules',) {
   package { $package_name: ensure => present, }
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     /^(Debian|Ubuntu)$/ : {
       package { 'opendkim-tools': ensure => present, }
 
